@@ -9,7 +9,7 @@ const NavBar = () => {
     <div class="container flex flex-wrap justify-between items-center mx-auto">
 
       <a href="" class="flex items-center">
-          <img src="/logo.png" class="mr-3 h-6 sm:h-9" alt="cambalache logo" />
+          <img src="../img/logo.png" class="mr-3 h-6 sm:h-9" alt="cambalache logo" />
       </a>
 
       <div class="hidden w-full md:block md:w-auto" id="mobile-menu">

@@ -1,5 +1,5 @@
 import React from 'react'
-import Item from './Item'
+import ItemList from './ItemList'
 
 const ItemListContainer = ({title}) => {
 
@@ -10,7 +10,7 @@ const ItemListContainer = ({title}) => {
         <br></br>
          <p>
              {title}
-             <Item/>
+             <ItemList/>
          </p>
     </div>
 
