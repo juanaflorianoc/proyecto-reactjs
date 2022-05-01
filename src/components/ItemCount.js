@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import './Styles/ItemListContainer.css';
+
 
 const ItemCount = ({initial, stock, onAdd}) => {
 
@@ -14,13 +16,13 @@ const ItemCount = ({initial, stock, onAdd}) => {
   return (
     <>
 
-            <div class="bg-pink-600 hover:bg-yellow-400 text-white font-bold py-2 px-4 rounded">
+            <div class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded">
             <button class="text-white-700 text-base" onClick={ () => addProduct(-1)} disabled={count === initial ? true : null}> - </button>
             <strong class="text-white-700 text-base"> {count} </strong>
             <button class="text-white-700 text-base" onClick={ () => addProduct(+1)} disabled={count === stock ? true : null}> + </button>
             </div>
             <br></br>
-            <button onClick={() => onAdd (count)} disabled={stock === 0 ? true : null}> Añadir </button>
+            <button onClick={() => onAdd (count)} disabled={stock === 0 ? true : null}> Añadir al carrito </button>
 
     </>
   )

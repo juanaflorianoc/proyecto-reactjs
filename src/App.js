@@ -2,6 +2,9 @@
 import './App.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
+
+import './components/Styles/ItemListContainer.css';
 
 function App() {
 
@@ -20,6 +23,8 @@ function App() {
       <h1 className='text-4xl' style={estilos}>ZEN concreto</h1>
 
       <ItemListContainer title={"Chequeá todas nuestras macetas acá abajo:"}/>
+
+      <ItemDetailContainer></ItemDetailContainer>
       
 
 

@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import Item from './Item';
 import { productList } from '../data/data.js';
+import ItemDetail from './ItemDetail.js';
 
 import './Styles/ItemListContainer.css';
 
+const ItemDetailContainer = () => {
 
-const ItemList = () => {
 
-    const [products, setProducts] = useState([]);
+    const [productsdetail, setProductsdetail] = useState([]);
 
-    const getProducts = new Promise ((resolve, reject) => {
+    const getProductsdetail = new Promise ((resolve, reject) => {
+       setTimeout(() => {
+           //const find = productList.find(item => item.name === 'Maceta BALI')
+           //const pd = productList.filter(productList.d < 2);
            resolve(productList);
+       }, 2000);
     });
 
-    const getProductsFromDB = async () => {
+    const getProductsFromDBdetail = async () => {
         try {
-            const result = await getProducts;
-            setProducts(result);
+            const result = await getProductsdetail;
+            setProductsdetail(result);
         } catch (error) {
             console.log (error);
             alert (`No podemos mostrar los productos en este momento`);
@@ -24,7 +28,7 @@ const ItemList = () => {
     };
 
     useEffect(() => {
-        getProductsFromDB();
+        getProductsFromDBdetail();
     }, []);
 
 
@@ -32,16 +36,18 @@ const ItemList = () => {
 
     <div className='product-list-container'>
         {
-          products.length ? (
+          productsdetail.length ? (
               <>
               {
-                  products.map((product) => {
+                  productsdetail.filter(pd => pd.id <2).map((product) => {
                       return (
                          <div key={product.id}>
-                             <Item
+                             <ItemDetail
+                             //name del ItemDetail = {product (ProductList) . name (productList)}
                                name={product.name}
                                image={product.image}
                                price={product.price}
+                               info={product.info}
                                stock={product.stock}
                                id={product.id}
                              />
@@ -51,11 +57,11 @@ const ItemList = () => {
               }
             </>
           ) : (
-          <p>Cargando productos..</p>
+          <p>Cargando detalles de producto..</p>
           )
         }
     </div>
   );
 };
 
-export default ItemList
+export default ItemDetailContainer

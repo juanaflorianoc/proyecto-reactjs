@@ -1,6 +1,8 @@
 import React from 'react'
 import ItemCount from './ItemCount';
 
+import './Styles/ItemListContainer.css';
+
 const Item = ({name, image, price, id, stock}) => {
 
     const onAdd = (count) => {
@@ -10,21 +12,19 @@ const Item = ({name, image, price, id, stock}) => {
 
   return (
 
-    <div className="item-list-container" class="w-64 rounded overflow-hidden shadow-lg">
+    <div>
+    <div class="rounded overflow-hidden shadow-lg">
 
       <img class="w-full" src={image} alt=""></img>
       <div class="px-6 py-4">
            <div class="font-bold text-xl mb-2">{name}</div>
                <p class="text-gray-700 text-base">
-                {price}
+                ${price}
                </p>
+               <br></br>
+               <button class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded"> Más info </button>
        </div>
-
-       <div class="px-6 pt-4 pb-2">
-       <div class="px-6 pb-2 inline-block px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-           <ItemCount stock={stock} onAdd={onAdd} initial={1}/>
-       </div>
-       </div>
+    </div>
     </div>
 
 
