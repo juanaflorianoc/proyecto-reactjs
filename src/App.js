@@ -5,45 +5,28 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 
 import './components/Styles/ItemListContainer.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import Home from './components/Home';
 
 function App() {
 
 
-  const estilos = {
-    color:'#D61F69'
-  }
-
-
   return (
 
-    <div className="App">
 
-      <NavBar/>
-      
-      <h1 className='text-4xl' style={estilos}>ZEN concreto</h1>
+     <BrowserRouter>
 
-      <ItemListContainer title={"Chequeá todas nuestras macetas acá abajo:"}/>
+       <NavBar></NavBar>
 
-      <ItemDetailContainer></ItemDetailContainer>
-      
+       <Routes>
+         <Route path='/home' element={<Home></Home>}></Route>
+         <Route path='/productos' element={<ItemListContainer></ItemListContainer>}></Route>
+         <Route path='/productos/:productosId' element={<ItemDetailContainer/>}></Route>
+       </Routes>
 
+     </BrowserRouter>
 
-      {/*<header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>*/}
-
-    </div>
   );
 }
 

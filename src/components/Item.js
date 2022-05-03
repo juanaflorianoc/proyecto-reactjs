@@ -1,9 +1,12 @@
 import React from 'react'
+import { Link, useParams } from 'react-router-dom';
 import ItemCount from './ItemCount';
 
 import './Styles/ItemListContainer.css';
 
 const Item = ({name, image, price, id, stock}) => {
+
+    const {productosId} = useParams()
 
     const onAdd = (count) => {
         alert(`Has agregado ${count} prendas`);
@@ -22,7 +25,7 @@ const Item = ({name, image, price, id, stock}) => {
                 ${price}
                </p>
                <br></br>
-               <button class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded"> Más info </button>
+               <Link to={`/productos/${id}`} class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded"> Más info </Link>
        </div>
     </div>
     </div>

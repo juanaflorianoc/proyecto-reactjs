@@ -31,7 +31,7 @@ export const productList = [
         price: 600,
         image: '../img/productos/lanka.jpg', 
         stock: 5,
-        id: 3,
+        id: 4,
     },
     {
         name: 'Maceta MALAUI L', 
@@ -39,7 +39,7 @@ export const productList = [
         price: 600,
         image: '../img/productos/malaui-l.jpg', 
         stock: 5,
-        id: 3,
+        id: 5,
     },
     {
         name: 'Maceta MALAUI S', 
@@ -47,7 +47,7 @@ export const productList = [
         price: 600,
         image: '../img/productos/malaui-s.jpg', 
         stock: 5,
-        id: 3,
+        id: 6,
     },
     {
         name: 'Maceta NAOSHIMA', 
@@ -55,7 +55,7 @@ export const productList = [
         price: 600,
         image: '../img/productos/naoshima.jpg', 
         stock: 5,
-        id: 3,
+        id: 7,
     },
     {
         name: 'Maceta OSAKA', 
@@ -63,7 +63,7 @@ export const productList = [
         image: '../img/productos/osaka.jpg', 
         price: 600,
         stock: 5,
-        id: 3,
+        id: 8,
     },
     {
         name: 'Maceta TAIPEI', 
@@ -71,7 +71,7 @@ export const productList = [
         price: 600,
         image: '../img/productos/taipei.jpg', 
         stock: 5,
-        id: 3,
+        id: 9,
     },
     {
         name: 'Maceta TALUK', 
@@ -79,6 +79,6 @@ export const productList = [
         image: '../img/productos/taluk.jpg', 
         price: 600,
         stock: 5,
-        id: 3,
+        id: 10,
     },
 ];

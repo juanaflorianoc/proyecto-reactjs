@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "Agatho regular";
+    src: url("/public/fonts/Agatho_Regular.otf");
+}
+
+
+.home-title {
+    font-size: 50px;
+    font-family: "Agatho regular";
+    color: #464655;
+    text-align: center;
+}
+
+.home-intro {
+    font-size: 20px;
+    font-family: "Agatho regular";
+    color: #464655;
+    text-align: center;
+}
+
+.home-title-contenedor {
+         width: 100%;
+         min-height: 60vh;
+         padding: 30px;
+         margin-bottom: 60px;
+}

@@ -1,5 +1,5 @@
 
-.item-container {
+.items-container {
    /* width: 250px;
     display: flex;
     flex-wrap: nowrap;*/
@@ -16,3 +16,20 @@
         gap: 30px 60px;
         margin: 40px 20px;
 }
+
+.detail-container {
+    display: grid;
+    grid-template-areas: "detail product 1" "detail product 2";
+    grid-template-rows: 1fr 1fr;
+}
+
+.detail-product-1{
+    grid-area: "detail product 1";
+}
+
+.detail-product-2{
+    grid-area: "detail product 2";
+
+}
+
+

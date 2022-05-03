@@ -1,9 +1,10 @@
 import React from 'react'
+import ItemDetailContainer from './ItemDetailContainer';
 import ItemList from './ItemList'
 
 import './Styles/ItemListContainer.css';
 
-const ItemListContainer = ({title}) => {
+const ItemListContainer = () => {
 
   return (
 
@@ -11,8 +12,7 @@ const ItemListContainer = ({title}) => {
         <br></br>
         <br></br>
          <p>
-             {title}
-             <div className='item-container'>
+             <div className='items-container'>
              <ItemList/>
              </div>
          </p>
