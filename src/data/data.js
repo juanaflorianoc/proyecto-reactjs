@@ -75,7 +75,7 @@ export const productList = [
     },
     {
         name: 'Maceta TALUK', 
-        info: 500,
+        info: '12cm de lado x 6cm de algo x 9cm lado interior',
         image: '../img/productos/taluk.jpg', 
         price: 600,
         stock: 5,

@@ -1,5 +1,5 @@
-import React from 'react'
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link, useParams } from 'react-router-dom';
 import { productList } from '../data/data';
 import ItemCount from './ItemCount';
 
@@ -7,8 +7,10 @@ import './Styles/ItemListContainer.css';
 
 const ItemDetail = ({name, image, price, info, id, stock}) => {
 
+    const [terminar, setTerminar] = useState(false)
+
     const onAdd = (count) => {
-        alert(`Has agregado ${count} prendas`);
+        setTerminar(true)
     };
 
 
@@ -29,7 +31,18 @@ const ItemDetail = ({name, image, price, info, id, stock}) => {
 
             <div class="px-6 pt-4 pb-2">
                <div class="px-6 pb-2 inline-block px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-               <ItemCount stock={stock} onAdd={onAdd} initial={1}/>
+
+                 {terminar ? (
+                   <Link
+                       to="/cart"
+                       className=''
+                   >
+                     Terminar compra
+                   </Link>
+                 ) : (
+                   <ItemCount stock={stock} onAdd={onAdd} initial={1}/>
+                 )}
+
               </div>
             </div>
       </div>
