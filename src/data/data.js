@@ -82,3 +82,11 @@ export const productList = [
         id: 10,
     },
 ];
+
+const task = new Promise((resp) => {
+	resp(productList)
+}, 2000)
+
+export const getItem = () => {
+	return task
+}

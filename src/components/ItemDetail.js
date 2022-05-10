@@ -40,7 +40,7 @@ const ItemDetail = ({name, image, price, info, id, stock}) => {
                      Terminar compra
                    </Link>
                  ) : (
-                   <ItemCount stock={stock} onAdd={onAdd} initial={1}/>
+                   <ItemCount stock={stock} onAdd={onAdd} initial={1} id={id}/>
                  )}
 
               </div>

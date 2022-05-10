@@ -8,6 +8,8 @@ import './components/Styles/ItemListContainer.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Home from './components/Home';
+import CartContextProvider from './context/CartContext';
+import AppContextProvider from './context/AppContext';
 
 function App() {
 
@@ -15,26 +17,27 @@ function App() {
   return (
 
 
-     <BrowserRouter>
-
-       <NavBar></NavBar>
-
-       <Routes>
-         <Route 
-            path='/' 
-            element={<Home></Home>}
-        />
-         <Route 
-            path='/productos' 
-            element={<ItemListContainer></ItemListContainer>}
-        />
-         <Route 
-            path='/productos/:productosId' 
-            element={<ItemDetailContainer/>}
-            />
-       </Routes>
-
-     </BrowserRouter>
+    <AppContextProvider>
+    <CartContextProvider>
+         <BrowserRouter>
+           <NavBar></NavBar>
+           <Routes>
+             <Route 
+                path='/' 
+                element={<Home></Home>}
+             />
+             <Route 
+                path='/productos' 
+                element={<ItemListContainer></ItemListContainer>}
+             />
+             <Route 
+                path='/productos/:productosId' 
+                element={<ItemDetailContainer/>}
+             />
+           </Routes>
+         </BrowserRouter>
+     </CartContextProvider>
+     </AppContextProvider>
 
   );
 }

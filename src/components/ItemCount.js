@@ -1,15 +1,32 @@
 import React, { useState } from 'react'
+import { useAppContext } from '../context/AppContext';
+import { useCartContext } from '../context/CartContext';
 
 import './Styles/ItemListContainer.css';
 
 
-const ItemCount = ({initial, stock, onAdd}) => {
+const ItemCount = ({initial, stock, onAdd, id}) => {
 
    console.log('aquí hay un render del componente contador')
    const [count, setCount] = useState(initial)
 
+   const { addToCart } = useCartContext()
+   const { products } = useAppContext()
+
    const addProduct = (num) => {
        setCount (count + num)
+   }
+
+   const handleClick = (id, cantidad) => {
+     const findProduct = products.find((producto) => producto.id == id)
+
+     if (!findProduct){
+       alert("Error en la base de datos")
+       return
+     }
+
+     addToCart (findProduct, cantidad)
+     onAdd (count)
    }
 
 
@@ -22,7 +39,13 @@ const ItemCount = ({initial, stock, onAdd}) => {
             <button class="text-white-700 text-base" onClick={ () => addProduct(+1)} disabled={count === stock ? true : null}> + </button>
             </div>
             <br></br>
-            <button onClick={() => onAdd (count)} disabled={stock === 0 ? true : null}> Añadir al carrito </button>
+            {/*<button onClick={() => onAdd (count)} disabled={stock === 0 ? true : null}> Añadir al carrito </button>*/}
+            <button
+              className=''
+              onClick={() => handleClick(id, count)}
+            >
+              Añadir al carrito
+            </button>
 
     </>
   )
