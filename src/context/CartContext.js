@@ -11,7 +11,7 @@ const CartContextProvider = ({ children }) => {
 	// Validar si está el item en el carrito
 	const isInCart = (id) => cart.find((producto) => producto.id === id)
 
-	// Agregar item al carrito
+	//////////// Agregar item al carrito
 	const addToCart = (producto, cantidad) => {
 		const newCart = [...cart]
 
@@ -30,6 +30,20 @@ const CartContextProvider = ({ children }) => {
 		setCart([...newCart, producto])
 	}
 
+
+    const intoCart = (id) => {
+        return cart.some( prod => prod.id === id) 
+    }
+    
+    const totalCant = () => {
+        let total = 0
+        cart.forEach(producto => total += producto.cant ) 
+        return total;
+    }
+
+
+
+	//////////// Sacar item del carrito
 	const deleteFromCart = (producto) => {
 		const newCart = [...cart]
 
@@ -44,9 +58,18 @@ const CartContextProvider = ({ children }) => {
 		setCart(deleteProduct)
 	}
 
-	const deleteCart = () => setCart([])
 
+	const clearCart = () => {
+        const emptyCart = []
+        setCart(emptyCart)
+    }
+
+	
+
+	const deleteCart = () => setCart([])
 	console.log(cart)
+
+
 
 	return (
 		<CartContext.Provider

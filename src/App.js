@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import CartContextProvider from './context/CartContext';
 import AppContextProvider from './context/AppContext';
+import Cart from './components/Cart';
 
 function App() {
 
@@ -33,6 +34,10 @@ function App() {
              <Route 
                 path='/productos/:productosId' 
                 element={<ItemDetailContainer/>}
+             />
+             <Route
+                path='/cart'
+                element={<Cart/>}
              />
            </Routes>
          </BrowserRouter>

@@ -8,9 +8,9 @@ const Item = ({name, image, price, id, stock}) => {
 
     const {productosId} = useParams()
 
-    const onAdd = (count) => {
-        alert(`Has agregado ${count} prendas`);
-    };
+    //const onAdd = (count) => {
+       // alert(`Has agregado ${count} prendas`);
+    //};
 
 
   return (

@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import { productList } from '../data/data';
+import Spinner from './CommonComponents/Spinner';
 import ItemCount from './ItemCount';
 
 import './Styles/ItemListContainer.css';
 
-const ItemDetail = ({name, image, price, info, id, stock}) => {
+const ItemDetail = ({name, image, price, info, id, stock, productsdetail}) => {
 
     const [terminar, setTerminar] = useState(false)
 
@@ -14,7 +15,10 @@ const ItemDetail = ({name, image, price, info, id, stock}) => {
     };
 
 
-  return (
+    if (productsdetail === undefined) {
+      return <Spinner/>
+    } else {
+    return (
 
     <div className="detail-container" class="w-64 rounded overflow-hidden shadow-lg">
 
@@ -37,7 +41,7 @@ const ItemDetail = ({name, image, price, info, id, stock}) => {
                        to="/cart"
                        className=''
                    >
-                     Terminar compra
+                     Ir al carrito
                    </Link>
                  ) : (
                    <ItemCount stock={stock} onAdd={onAdd} initial={1} id={id}/>
@@ -51,6 +55,7 @@ const ItemDetail = ({name, image, price, info, id, stock}) => {
 
 
   )
+}
 }
 
 export default ItemDetail
