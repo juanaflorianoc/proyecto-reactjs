@@ -33,19 +33,24 @@ const ItemCount = ({initial, stock, onAdd, id}) => {
   return (
     <>
 
+            <div class="flex flex-col text-center mt-6 mr-6">
             <div class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded">
-            <button class="text-white-700 text-base" onClick={ () => addProduct(-1)} disabled={count === initial ? true : null}> - </button>
+            <button class="text-white-700 text-base mr-4" onClick={ () => addProduct(-1)} disabled={count === initial ? true : null}> - </button>
             <strong class="text-white-700 text-base"> {count} </strong>
-            <button class="text-white-700 text-base" onClick={ () => addProduct(+1)} disabled={count === stock ? true : null}> + </button>
+            <button class="text-white-700 text-base ml-4" onClick={ () => addProduct(+1)} disabled={count === stock ? true : null}> + </button>
             </div>
+
             <br></br>
-            {/*<button onClick={() => onAdd (count)} disabled={stock === 0 ? true : null}> Añadir al carrito </button>*/}
+
+            <div>
             <button
               className=''
               onClick={() => handleClick(id, count)}
             >
               Añadir al carrito
             </button>
+            </div>
+            </div>
 
     </>
   )

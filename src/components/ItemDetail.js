@@ -14,48 +14,30 @@ const ItemDetail = ({name, image, price, info, id, stock, productsdetail}) => {
         setTerminar(true)
     };
 
-
-    if (productsdetail === undefined) {
-      return <Spinner/>
-    } else {
     return (
 
-    <div className="detail-container" class="w-64 rounded overflow-hidden shadow-lg">
 
-      <div className="detail-product-1">
-      <img class="w-full" src={image} alt=""></img>
-      </div>
-
-
-      <div className="detail-product-2" class="px-6 py-4">
-           <div class="font-bold text-xl mb-2">{name}</div>
-               <p class="text-gray-700 text-base">${price}</p>
-               <br></br>
-               <p class="text-gray-700 text-base">{info}</p>
-
-            <div class="px-6 pt-4 pb-2">
-               <div class="px-6 pb-2 inline-block px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-
-                 {terminar ? (
-                   <Link
-                       to="/cart"
-                       className=''
-                   >
+      <div class="card w-96 bg-base-100 shadow-xl">
+         <figure><img src={image} alt="Album"/></figure>
+           <div class="card-body">
+             <h2 class="card-title">{name}</h2>
+             <p>${price}</p>
+             <p>${info}</p>
+               <div class="card-actions justify-end mt-6 mr-6">
+               {terminar ? (
+                   <Link to="/cart" className=''>
                      Ir al carrito
                    </Link>
                  ) : (
                    <ItemCount stock={stock} onAdd={onAdd} initial={1} id={id}/>
                  )}
-
-              </div>
-            </div>
+               </div>
+           </div>
       </div>
 
-    </div>
 
 
-  )
-}
+    )
 }
 
 export default ItemDetail

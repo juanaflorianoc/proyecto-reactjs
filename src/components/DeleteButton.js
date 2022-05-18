@@ -8,12 +8,12 @@ function DeleteButton(props) {
 
   return (
     <div>
-      <div class="flex space-x-2 justify-center">
+      <div class="flex space-x-2 justify-left">
         <div>
           <button
             onClick={Delete}
             type="button"
-            class="inline-block rounded-full bg-red-600 text-white leading-normal uppercase shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-9 h-9"
+            class="inline-block rounded-full bg-gray-400 text-white leading-normal uppercase shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-7 h-7"
           >
             <svg
               aria-hidden="true"

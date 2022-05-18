@@ -4,67 +4,78 @@ import { useCartContext } from "../context/CartContext";
 import DeleteButton from "./DeleteButton";
 
 const Cart = () => {
-  const { clearCart, cart, deleteFromCart } = useCartContext();
 
+  const { clearCart, cart, deleteFromCart } = useCartContext();
   const cartPrint = cart.map((producto) => {
+
     function onSubstract() {
       deleteFromCart(producto.id);
     }
 
-    const totalPrice = producto.cant * producto.price;
+    const totalPrice = producto.stock * producto.price;
 
 
 
     return (
-        <div class="overflow-x-auto">
-    <table class="table w-full">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Producto</th>
-          <th>Cantidad</th>
-          <th>Total</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody className="text-left">
-        <tr key={producto.id}>
-          <th>•</th>
-          <td className=""> 
-           <Link className="btn btn-link w-36" to={`/cart/${producto.id}`}> 
-             <span>
-               {producto.name} {producto.price}
-             </span>
-           </Link>
-          </td>
-          <td>{producto.stock}</td>
-          <td>${totalPrice}</td>
-          <td><DeleteButton onSubstract={onSubstract}/></td>
-        </tr>    
-      </tbody>
-    </table>
-  </div>)});
+
+        <div class="container mx-auto mt-10">
+    <div class="flex shadow-md my-10">
+      <div class="w-3/4 bg-white px-10 py-10">
+        <div class="flex justify-between border-b pb-8">
+          <h1 class="font-semibold text-2xl">Carrito de productos</h1>
+        </div>
+        <div class="flex mt-10 mb-5">
+          <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Detalles del producto</h3>
+          <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Cantidad</h3>
+          <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Precio</h3>
+          <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
+        </div>
+
+
+        {/* PRODUCTO */}
+        <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5" key={producto.id}>
+          <div class="flex w-2/5">
+            <div class="w-20">
+              <img class="h-24" src={producto.image} alt=""></img>
+            </div>
+            <div class="flex flex-col justify-between ml-4 flex-grow">
+              <span class="font-bold text-sm">{producto.name}</span>
+              <span class="text-gray-500 text-xs">{producto.info}</span>
+              {/* ELIMINAR PRODUCTO*/}
+              <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs"><DeleteButton onSubstract={onSubstract}/></a>
+            </div>
+          </div>
+
+          <div class="flex justify-center w-1/5">
+              <span class="text-center w-1/5 font-semibold text-sm">{producto.stock}</span>
+          </div>
+
+          <span class="text-center w-1/5 font-semibold text-sm">{producto.price}</span>
+          <span class="text-center w-1/5 font-semibold text-sm">{totalPrice}</span>
+        </div>
+
+
+
+        <Link to="/productos" href="#" class="flex font-semibold text-indigo-600 text-sm mt-10">
+          <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"/></svg>
+          Seguir comprando
+        </Link>
+      </div>
+
+      
+
+    </div>
+     </div>
+        
+        )});
   
-  //       <li key={cart.id}>
-  //         <Link className="btn btn-link" to={`/car/${producto.id}`}>
-  //           {" "}
-  //           <span>
-  //             {producto.brand} {producto.model}{" "}
-  //           </span>{" "}
-  //         </Link>
-  //         <span>x {producto.cant} = </span>
-  //         <span>USD ${totalPrice}</span>
-  //         <DeleteButton onSubstract={onSubstract} />
-  //       </li>
-  //     );
-  //   });
   
     if (cart.length === 0) {
       return (
         <div className="text-center">
           <h3 className="mt-32">No has agregado productos</h3>
-          <Link className="absolute mb-16 inset-x-0 bottom-0" to="/">
-            <button data-theme="emerald" class="btn btn-wide">Volver al Inicio</button>
+          <Link className="absolute mb-16 inset-x-0 bottom-0" to="/productos">
+            <button data-theme="emerald" class="btn btn-wide">Volver a todos los productos</button>
           </Link>
         </div>
       );
@@ -87,8 +98,10 @@ const Cart = () => {
             </button>
           </div>
         </div>
+
       );
     }
-  }
+}
+
 
 export default Cart;
