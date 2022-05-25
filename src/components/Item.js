@@ -4,7 +4,7 @@ import ItemCount from './ItemCount';
 
 import './Styles/ItemListContainer.css';
 
-const Item = ({name, image, price, id, stock}) => {
+const Item = ({name, img, price, id, stock}) => {
 
     const {productosId} = useParams()
 
@@ -18,7 +18,7 @@ const Item = ({name, image, price, id, stock}) => {
     <div>
     <div class="rounded overflow-hidden shadow-lg">
 
-      <img class="w-full" src={image} alt=""></img>
+      <img class="w-full" src={img} alt=""></img>
       <div class="px-6 py-4">
            <div class="font-bold text-xl mb-2">{name}</div>
                <p class="text-gray-700 text-base">

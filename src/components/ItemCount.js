@@ -7,7 +7,6 @@ import './Styles/ItemListContainer.css';
 
 const ItemCount = ({initial, stock, onAdd, id}) => {
 
-   console.log('aquí hay un render del componente contador')
    const [count, setCount] = useState(initial)
 
    const { addToCart } = useCartContext()

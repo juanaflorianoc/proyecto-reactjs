@@ -6,7 +6,7 @@ import ItemCount from './ItemCount';
 
 import './Styles/ItemListContainer.css';
 
-const ItemDetail = ({name, image, price, info, id, stock, productsdetail}) => {
+const ItemDetail = ({name, img, price, description, id, stock, itemdetail}) => {
 
     const [terminar, setTerminar] = useState(false)
 
@@ -18,11 +18,11 @@ const ItemDetail = ({name, image, price, info, id, stock, productsdetail}) => {
 
 
       <div class="card w-96 bg-base-100 shadow-xl">
-         <figure><img src={image} alt="Album"/></figure>
+         <figure><img src={img} alt="Album"/></figure>
            <div class="card-body">
              <h2 class="card-title">{name}</h2>
              <p>${price}</p>
-             <p>${info}</p>
+             <p>${description}</p>
                <div class="card-actions justify-end mt-6 mr-6">
                {terminar ? (
                    <Link to="/cart" className=''>

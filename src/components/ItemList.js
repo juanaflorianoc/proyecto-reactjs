@@ -1,15 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import Item from './Item';
 import { productList } from '../data/data.js';
+import { collection, getDocs, getFirestore, query } from "firebase/firestore";
 
 import './Styles/ItemListContainer.css';
+import { useParams } from 'react-router-dom';
 
 
 const ItemList = () => {
 
-    const [products, setProducts] = useState([]);
+const {categoryId} = useParams()
+const [item, setItem] = useState([]);
 
-    const getProducts = new Promise ((resolve, reject) => {
+useEffect(() => {
+  const db = getFirestore();
+  const getItem = async () => {
+
+    const MyItem = categoryId
+        ? query(collection(db, "products"))
+        : collection(db, "products")
+    const querySnapshot = await getDocs(MyItem)
+    setItem(
+      querySnapshot.docs.map((item) => {
+        return { ...item.data(), id: item.id }
+      })
+    )
+  }
+
+  getItem()
+}, [categoryId] )
+
+    /*const getProducts = new Promise ((resolve, reject) => {
            resolve(productList);
     });
 
@@ -25,25 +46,25 @@ const ItemList = () => {
 
     useEffect(() => {
         getProductsFromDB();
-    }, []);
+    }, []);*/
 
 
   return (
 
     <div className='product-list-container'>
         {
-          products.length ? (
+          item.length ? (
               <>
               {
-                  products.map((product) => {
+                  item.map((it) => {
                       return (
-                         <div key={product.id}>
+                         <div key={it.id}>
                              <Item
-                               name={product.name}
-                               image={product.image}
-                               price={product.price}
-                               stock={product.stock}
-                               id={product.id}
+                               name={it.name}
+                               img={it.img}
+                               price={it.price}
+                               stock={it.stock}
+                               id={it.id}
                              />
                          </div>
                       );
