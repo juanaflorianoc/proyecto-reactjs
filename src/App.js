@@ -11,6 +11,7 @@ import Home from './components/Home';
 import CartContextProvider from './context/CartContext';
 import AppContextProvider from './context/AppContext';
 import Cart from './components/Cart';
+import CartContainer from './components/CartContainer';
 
 function App() {
 
@@ -32,7 +33,7 @@ function App() {
                 element={<ItemListContainer></ItemListContainer>}
              />
              <Route 
-                path='/productos/:productosId' 
+                path='/productos/:itemId' 
                 element={<ItemDetailContainer/>}
              />
              <Route

@@ -14,7 +14,7 @@ const ItemDetailContainer = () => {
 useEffect(() => {
   const db = getFirestore();
 
-  const itemsCollection = doc(db, 'items', itemId);
+  const itemsCollection = doc(db, 'products', itemId);
   getDoc (itemsCollection).then ((snapshot)=>{
   const cat={ id: snapshot.id, ...snapshot.data()}
   setItem (cat)
