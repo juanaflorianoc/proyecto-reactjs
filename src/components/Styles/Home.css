@@ -16,6 +16,7 @@
     font-family: "Agatho regular";
     color: #464655;
     text-align: center;
+    align-items: center;
 }
 
 .home-title-contenedor {
@@ -23,4 +24,5 @@
          min-height: 60vh;
          padding: 30px;
          margin-bottom: 60px;
+         align-items: center;
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import { useCartContext } from "../context/CartContext";
+import Cart from './Cart';
 import DeleteButton from "./DeleteButton";
 
 const CartContainer = () => {
@@ -31,27 +32,7 @@ const CartContainer = () => {
           </div>
   
   
-                {/* PRODUCTO */}
-                <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5" key={producto.id}>
-                  <div class="flex w-2/5">
-                    <div class="w-20">
-                      <img class="h-24" src={producto.image} alt=""></img>
-                    </div>
-                    <div class="flex flex-col justify-between ml-4 flex-grow">
-                      <span class="font-bold text-sm">{producto.name}</span>
-                      <span class="text-gray-500 text-xs">{producto.info}</span>
-                      {/* ELIMINAR PRODUCTO*/}
-                      <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs"><DeleteButton onSubstract={onSubstract}/></a>
-                    </div>
-                  </div>
-  
-                  <div class="flex justify-center w-1/5">
-                      <span class="text-center w-1/5 font-semibold text-sm">{producto.stock}</span>
-                  </div>
-  
-                  <span class="text-center w-1/5 font-semibold text-sm">{producto.price}</span>
-                  <span class="text-center w-1/5 font-semibold text-sm">{totalPrice}</span>
-                </div>
+           <Cart></Cart>
   
   
   
@@ -68,38 +49,8 @@ const CartContainer = () => {
           
           )});
     
-    
-      if (cart.length === 0) {
-        return (
-          <div className="text-center">
-            <h3 className="mt-32">No has agregado productos</h3>
-            <Link className="absolute mb-16 inset-x-0 bottom-0" to="/productos">
-              <button data-theme="emerald" class="btn btn-wide">Volver a todos los productos</button>
-            </Link>
-          </div>
-        );
-      } else {
-        return (
-          <div data-theme="emerald">
-            <div>
-              <ul>{cartPrint}</ul>
-            </div>
-            <div className="absolute inset-x-0 bottom-0">
-              <button
-                onClick={clearCart}
-                className="
-               mb-2 w-full inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-normal
-               uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg
-               focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out
-               "
-              >
-                Borrar Todo
-              </button>
-            </div>
-          </div>
   
-        );
-      }
+      
   }
 
 export default CartContainer

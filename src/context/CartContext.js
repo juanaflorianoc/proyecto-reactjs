@@ -11,6 +11,14 @@ const CartContextProvider = ({ children }) => {
 	// Validar si está el item en el carrito
 	const isInCart = (id) => cart.find((producto) => producto.id === id)
 
+
+    const quantity = () => cart.reduce((sum, i) => {return sum + i.quantity}, 0)
+
+	const total = () => cart.reduce((sum, i) => { return sum + (i.quantity * i.price) }, 0)
+
+
+
+
 	//////////// Agregar item al carrito
 	const addToCart = (producto, cantidad) => {
 		const newCart = [...cart]
@@ -63,7 +71,6 @@ const CartContextProvider = ({ children }) => {
 	
 
 	const deleteCart = () => setCart([])
-	console.log(cart)
 
 
 
@@ -76,6 +83,8 @@ const CartContextProvider = ({ children }) => {
 				deleteCart,
 				setCart,
 				clearCart,
+				quantity,
+				total
 			}}
 		>
 			{children}

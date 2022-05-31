@@ -12,6 +12,7 @@ import CartContextProvider from './context/CartContext';
 import AppContextProvider from './context/AppContext';
 import Cart from './components/Cart';
 import CartContainer from './components/CartContainer';
+import CartOrder from './components/CartOrder';
 
 function App() {
 
@@ -39,6 +40,10 @@ function App() {
              <Route
                 path='/cart'
                 element={<Cart/>}
+             />
+             <Route
+                path='/order'
+                element={<CartOrder/>}
              />
            </Routes>
          </BrowserRouter>
