@@ -11,8 +11,11 @@ import Home from './components/Home';
 import CartContextProvider from './context/CartContext';
 import AppContextProvider from './context/AppContext';
 import Cart from './components/Cart';
-import CartContainer from './components/CartContainer';
 import CartOrder from './components/CartOrder';
+import Footer from './components/Footer';
+
+import { FaFacebookF } from "react-icons/fa"; 
+import { AiFillInstagram } from "react-icons/ai";
 
 function App() {
 
@@ -46,6 +49,7 @@ function App() {
                 element={<CartOrder/>}
              />
            </Routes>
+           <Footer></Footer>
          </BrowserRouter>
      </CartContextProvider>
      </AppContextProvider>

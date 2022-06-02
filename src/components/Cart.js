@@ -7,14 +7,14 @@ import SaveItems from "./SaveItems";
 
 const Cart = () => {
 
-  const { clearCart, cart, deleteFromCart } = useCartContext();
+  const { clearCart, cart, deleteFromCart, total } = useCartContext();
   const cartPrint = cart.map((producto) => {
 
     function onSubstract() {
       deleteFromCart(producto.id);
     }
 
-    const totalPrice = producto.stock * producto.price;
+    const totalPrice = producto.quantity * producto.price;
 
     return (
     <>
@@ -34,11 +34,11 @@ const Cart = () => {
                   </div>
 
                   <div class="flex justify-center w-1/5">
-                     <span class="text-center w-1/5 font-semibold text-sm">{producto.stock}</span>
+                     <span class="text-center w-1/5 font-semibold text-sm">{producto.quantity}</span>
                   </div>
 
-                  <span class="text-center w-1/5 font-semibold text-sm">{producto.price}</span>
-                  <span class="text-center w-1/5 font-semibold text-sm">{totalPrice}</span>
+                  <span class="text-center w-1/5 font-semibold text-sm">${producto.price}</span>
+                  <span class="text-center w-1/5 font-semibold text-sm">${totalPrice}</span>
              </div>
     </>
    )});
@@ -87,8 +87,8 @@ const Cart = () => {
 
                     {/* llamar el total de todos los productos */}
                     <div class="card-body content-center">
-                      <h5 class="text-3xl mt-5">Total</h5>
-                      <p class="text-2xl">$350</p>
+                      <h5 class="text-3xl mt-5">Total compra</h5>
+                      <p class="text-2xl">${total()}</p>
                     </div>
 
                     <div>

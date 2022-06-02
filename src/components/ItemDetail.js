@@ -6,7 +6,7 @@ import ItemCount from './ItemCount';
 
 import './Styles/ItemListContainer.css';
 
-const ItemDetail = ({name, img, price, description, id, stock, itemdetail}) => {
+const ItemDetail = ({name, img, price, description, id, stock}) => {
 
     const [terminar, setTerminar] = useState(false)
 
@@ -29,7 +29,7 @@ const ItemDetail = ({name, img, price, description, id, stock, itemdetail}) => {
                      Ir al carrito
                    </Link>
                  ) : (
-                   <ItemCount stock={stock} onAdd={onAdd} initial={1} id={id}/>
+                   <ItemCount stock={stock} onAdd={onAdd} initial={1} id={id} />
                  )}
                </div>
            </div>
