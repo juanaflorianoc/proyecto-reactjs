@@ -16,7 +16,9 @@ Si querés ver el demo de este proyecto, hace click acá:
 Para arrancar el proyecto se debe descargar el archivo y ejecutar: `npm start`
 
 #### Información personal
+
 ✉️ florianojuana@gmail.com
+
 **Cualquier problema, contribución o recomendación son bienvenidas 🙌🏼
 Muchas gracias por leer**
 
