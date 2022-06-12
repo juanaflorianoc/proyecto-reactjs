@@ -9,7 +9,7 @@ Se trata de un proyecto de un e-commerce de productos realizados artesanalmente 
 
 ## Demo
 
-Si querés ver el demo de este proyecto, hace click acá: 
+Si querés ver el demo de este proyecto, hace click acá: [(https://zen-concreto.vercel.app/)]
 
 ## Instalación
 
