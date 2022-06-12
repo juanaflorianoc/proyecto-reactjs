@@ -68,56 +68,6 @@ const CartOrder = () => {
 
     <>
     {cart && cart.length > 0 ? (
-      /*<div className="card container mt-4" style={{maxWidth: "500px"}}>
-        <div className="card-body">
-
-          <h5 className="card-title">
-            Ingrese los siguientes datos para confirmar la compra
-          </h5>
-
-          <form onSubmit={handleSubmit}>
-
-            <div className="mb-3">
-              <label className="form-label">Nombre</label>
-              <input
-                type="text"
-                className="form-control"
-                id="inptNombre"
-                onBlur={handleNameBlur}
-                required
-              />
-            </div>
-
-            <div className="mb-3">
-              <label className="form-label">Telefono</label>
-              <input
-                type="text"
-                className="form-control"
-                id="inptTelefono"
-                onBlur={handlePhoneBlur}
-                required
-              />
-            </div>
-
-            <div className="mb-3">
-              <label className="form-label">Email</label>
-              <input
-                type="email"
-                className="form-control"
-                id="inptEmail"
-                onBlur={handleEmailBlur}
-                required
-              />
-            </div>
-
-            <button type="submit" className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded">
-              Confirmar
-            </button>
-
-          </form>
-
-        </div>
-      </div>*/
 
     <div class="flex justify-center my-8">
      <div class="flex-initial w-4/12">
@@ -193,9 +143,11 @@ const CartOrder = () => {
                 <h1 className='home-title'> Compra exitosa 💘</h1>
                 <p className='home-intro'> Su compra se ha registrado correctamente bajo el id "{saleId}"</p>
                 <br></br>
+                <div className='center'>
                 <Link to="/">
                  <button className='home-intro'>Volver al inicio</button>
                 </Link>
+                </div>
                 </div>
                 </>
                 ) : (
