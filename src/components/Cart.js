@@ -3,7 +3,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../context/CartContext";
 import DeleteButton from "./DeleteButton";
-import SaveItems from "./SaveItems";
 
 const Cart = () => {
 

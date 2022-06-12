@@ -2,7 +2,6 @@ import { addDoc, collection, doc, getFirestore, increment, updateDoc } from 'fir
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../context/CartContext';
-import SaveItems from './SaveItems'
 import './Styles/Home.css';
 
 const CartOrder = () => {
@@ -69,12 +68,15 @@ const CartOrder = () => {
 
     <>
     {cart && cart.length > 0 ? (
-      <div className="card container mt-4" style={{maxWidth: "500px"}}>
+      /*<div className="card container mt-4" style={{maxWidth: "500px"}}>
         <div className="card-body">
+
           <h5 className="card-title">
             Ingrese los siguientes datos para confirmar la compra
           </h5>
+
           <form onSubmit={handleSubmit}>
+
             <div className="mb-3">
               <label className="form-label">Nombre</label>
               <input
@@ -85,6 +87,7 @@ const CartOrder = () => {
                 required
               />
             </div>
+
             <div className="mb-3">
               <label className="form-label">Telefono</label>
               <input
@@ -95,6 +98,7 @@ const CartOrder = () => {
                 required
               />
             </div>
+
             <div className="mb-3">
               <label className="form-label">Email</label>
               <input
@@ -105,12 +109,79 @@ const CartOrder = () => {
                 required
               />
             </div>
+
             <button type="submit" className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded">
               Confirmar
             </button>
+
           </form>
+
         </div>
+      </div>*/
+
+    <div class="flex justify-center my-8">
+     <div class="flex-initial w-4/12">
+       <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+
+         <h5 className="card-title">
+            Ingrese los siguientes datos para confirmar la compra
+         </h5>
+
+         <br></br>
+
+         <div class="mb-4">
+           <label class="block text-gray-700 text-sm font-bold mb-2">
+           Nombre
+           </label>
+           <input 
+           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+           id="username" 
+           type="text" 
+           placeholder="Nombre"
+           onBlur={handleNameBlur} required
+           />
+         </div>
+
+
+         <div class="mb-6">
+           <label class="block text-gray-700 text-sm font-bold mb-2">
+           Teléfono
+           </label>
+           <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+           id="phone" 
+           type="text" 
+           placeholder="Teléfono"
+           onBlur={handlePhoneBlur} required
+           />
+         </div>
+
+
+         <div class="mb-6">
+           <label class="block text-gray-700 text-sm font-bold mb-2">
+           Email
+           </label>
+           <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+           id="email" 
+           type="email" 
+           placeholder="Email"
+           onBlur={handleEmailBlur} required
+           />
+         </div>
+
+         <div class="flex items-center justify-between">
+           <button class="bg-gray-400 hover:bg-orange-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+           Confirmar
+           </button>
+           <a class="inline-block align-baseline font-bold text-sm text-orange-400 hover:text-orange-600" href="#">
+           <Link to='/productos'>¿Querés seguir comprando?</Link>
+           </a>
+         </div>
+
+       </form>
+
       </div>
+      </div>
+      
     ) : (
  
 

@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useEffect, useState } from "react"
-import { getItem } from "../data/data"
 import { collection, getDocs, getFirestore, query } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 
@@ -8,13 +7,6 @@ const AppContext = createContext()
 export const useAppContext = () => useContext(AppContext)
 
 const AppContextProvider = ({ children }) => {
-
-
-	/*const [products, setProducts] = useState([])
-
-	useEffect(() => {
-		getItem().then((resp) => setProducts(resp))
-	})*/
 
     const {categoryId} = useParams()
     const [products, setProducts] = useState([]);

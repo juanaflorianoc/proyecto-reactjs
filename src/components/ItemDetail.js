@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
-import { productList } from '../data/data';
-import Spinner from './CommonComponents/Spinner';
 import ItemCount from './ItemCount';
 
 import './Styles/ItemListContainer.css';

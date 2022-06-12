@@ -19,6 +19,18 @@
     align-items: center;
 }
 
+.home-button {
+    font-size: 20px;
+    font-family: "Agatho regular";
+    color: #464655;
+}
+.home-button:hover {
+   color:orange;
+}
+div.center {
+    text-align: center;
+  }
+
 .home-title-contenedor {
          width: 100%;
          min-height: 60vh;
